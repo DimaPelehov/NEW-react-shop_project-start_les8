@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './layout/App'
+import { BrowserRouter } from 'react-router-dom'
 
 // ---три наступні рядки стосуються лише лекцій
 // import TrainingHeader from './TrainingHeader'
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </React.StrictMode>
 )
 
