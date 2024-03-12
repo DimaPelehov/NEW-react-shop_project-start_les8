@@ -1,0 +1,9 @@
+.menu-item {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-item-active {
+    color: blue;
+    text-decoration: none;
+}
