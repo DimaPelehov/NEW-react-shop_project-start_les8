@@ -7,33 +7,17 @@ import { Route, Routes } from 'react-router'
 import { Container } from '@mui/material'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/CartPage/CartPage'
+import { omit } from 'lodash'
 
 type Props = {}
 
 type ProductsInCartType = { [id: number]: number }
-
-// type CartDataType = {
-//     totalCount: number
-//     totalPrice: number
-// }
 
 const App = (props: Props) => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCartType>({
         1: 5,
         2: 5,
     })
-
-    // const [cartData, setCartData] = useState<CartDataType>({
-    //     totalCount: 0,
-    //     totalPrice: 0,
-    // })
-
-    // const addProductToCart = (count: number, price: number) => {
-    //     setCartData((prevState) => ({
-    //         totalCount: prevState.totalCount + count,
-    //         totalPrice: prevState.totalPrice + count * price,
-    //     }))
-    // }
 
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState) => ({
@@ -43,21 +27,14 @@ const App = (props: Props) => {
     }
 
     const removeProductFromCart = (id: number) => {
-        setProductsInCart((prevState) => {
-            let prevProductsInCart = { ...prevState }
-            delete prevProductsInCart[id]
-            return prevProductsInCart
-        })
+        setProductsInCart((prevState) => omit(prevState, id))
     }
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <button onClick={() => removeProductFromCart(1)}>Remove</button>
-            {/* <button onClick={() => addProductToCart(2, 5)}>
-                Add to cart(id:2,count:5)
-            </button> */}
+
             <Container maxWidth="lg" sx={{ padding: '50px 0px' }}>
                 <Routes>
                     <Route
@@ -66,7 +43,12 @@ const App = (props: Props) => {
                     />
                     <Route
                         path="cart"
-                        element={<CartPage productsInCart={productsInCart} />}
+                        element={
+                            <CartPage
+                                productsInCart={productsInCart}
+                                removeProductFromCart={removeProductFromCart}
+                            />
+                        }
                     />
                 </Routes>
             </Container>
