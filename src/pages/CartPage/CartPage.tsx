@@ -6,9 +6,16 @@ import CartTotal from 'components/CartTotal/CartTotal'
 type Props = {
     productsInCart: { [id: number]: number }
     removeProductFromCart: (id: number) => void
+    cartPageCountPlus: (id: number) => void
+    cartPageCountMinus: (id: number) => void
 }
 
-const CartPage = ({ productsInCart, removeProductFromCart }: Props) => {
+const CartPage = ({
+    productsInCart,
+    removeProductFromCart,
+    cartPageCountPlus,
+    cartPageCountMinus,
+}: Props) => {
     return (
         <div>
             <Typography component={'h1'} variant="h4">
@@ -19,6 +26,8 @@ const CartPage = ({ productsInCart, removeProductFromCart }: Props) => {
                     productsInCart={productsInCart}
                     CartItem={CartProductListItemExtended}
                     removeProductFromCart={removeProductFromCart}
+                    cartPageCountPlus={cartPageCountPlus}
+                    cartPageCountMinus={cartPageCountMinus}
                 />
             </Grid>
 

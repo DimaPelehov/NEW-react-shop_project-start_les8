@@ -6,6 +6,8 @@ type Props = {
     productsObject?: { [id: number]: Product }
     CartItem?: any
     removeProductFromCart?: (id: number) => void
+    cartPageCountPlus?: (id: number) => void
+    cartPageCountMinus?: (id: number) => void
 }
 
 const CartProductList = ({
@@ -13,6 +15,8 @@ const CartProductList = ({
     productsObject = getProductsObject(productsArray),
     CartItem = CartProductListItem,
     removeProductFromCart,
+    cartPageCountPlus,
+    cartPageCountMinus,
 }: Props) => {
     return (
         <>
@@ -22,6 +26,8 @@ const CartProductList = ({
                     product={productsObject[+productId]}
                     productCount={productsInCart[+productId]}
                     removeProductFromCart={removeProductFromCart}
+                    cartPageCountPlus={cartPageCountPlus}
+                    cartPageCountMinus={cartPageCountMinus}
                 />
             ))}
         </>
