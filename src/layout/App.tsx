@@ -30,6 +30,22 @@ const App = (props: Props) => {
         setProductsInCart((prevState) => omit(prevState, id))
     }
 
+    // зміна кількості товарів в розширеному варіанті корзини
+
+    const cartPageCountPlus = (id: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: (prevState[id] || 0) + 1,
+        }))
+    }
+
+    const cartPageCountMinus = (id: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: (prevState[id] || 0) - 1,
+        }))
+    }
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
@@ -47,6 +63,8 @@ const App = (props: Props) => {
                             <CartPage
                                 productsInCart={productsInCart}
                                 removeProductFromCart={removeProductFromCart}
+                                cartPageCountPlus={cartPageCountPlus}
+                                cartPageCountMinus={cartPageCountMinus}
                             />
                         }
                     />
