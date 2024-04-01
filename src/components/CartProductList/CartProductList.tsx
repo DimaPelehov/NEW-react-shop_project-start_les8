@@ -22,6 +22,7 @@ const CartProductList = ({
         <>
             {Object.keys(productsInCart).map((productId) => (
                 <CartItem
+                    // CartItem за замовчуванням рендерить CartProductListItem
                     key={productId}
                     product={productsObject[+productId]}
                     productCount={productsInCart[+productId]}
