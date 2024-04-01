@@ -49,6 +49,7 @@ const App = (props: Props) => {
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
+
             <Header productsInCart={productsInCart} />
 
             <Container maxWidth="lg" sx={{ padding: '50px 0px' }}>
@@ -57,6 +58,7 @@ const App = (props: Props) => {
                         path="/"
                         element={<Home addProductToCart={addProductToCart} />}
                     />
+
                     <Route
                         path="cart"
                         element={
