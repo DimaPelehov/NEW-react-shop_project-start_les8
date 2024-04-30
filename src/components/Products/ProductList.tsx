@@ -3,7 +3,9 @@ import ProductListItem from './ProductListItem'
 import { productsArray } from 'utils/productsArray'
 // застосовуємо іменований export для productsArray
 
-type Props = { addProductToCart: (id: number, count: number) => void }
+type Props = {
+    addProductToCart: (id: number, count: number) => void
+}
 
 const ProductList = ({ addProductToCart }: Props) => {
     return (
