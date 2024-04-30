@@ -2,8 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './layout/App'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 
-// ---три наступні рядки стосуються лише лекцій
+// ---три наступні рядки стосуються лише вступних лекцій по Реакт
 // import TrainingHeader from './TrainingHeader'
 // імпортуємо компонент TrainingHeader з файлу TrainingHeader.tsx
 // import TrainingContent from './TrainingContent'
@@ -12,9 +14,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>
 )
 

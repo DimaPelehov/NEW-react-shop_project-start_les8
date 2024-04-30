@@ -2,6 +2,10 @@ import { Button, Card, CardContent } from '@mui/material'
 import './ProductListItem.css'
 import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { toggleLikeState } from '../../redux/likeReducer'
 
 type ProductListItemType = {
     id: number
@@ -46,9 +50,17 @@ const ProductListItem = ({
     //     setColor((prevState) => (prevState === 'green' ? 'red' : 'green'))
     // }
 
+    // -------реалізація like за допомогою redux----
+    const isLiked = useAppSelector((state) => state.productsLikeState[id])
+
+    const dispatch = useAppDispatch()
+
     return (
         <Card className="product-list-item" variant="outlined">
             <CardContent>
+                <Button onClick={() => dispatch(toggleLikeState(id))}>
+                    {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </Button>
                 <div className="product-img">
                     <img src={image} alt={title} />
                 </div>
