@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './layout/App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { store } from './redux/store'
+import { store } from './store/store'
 
 // ---три наступні рядки стосуються лише вступних лекцій по Реакт
 // import TrainingHeader from './TrainingHeader'

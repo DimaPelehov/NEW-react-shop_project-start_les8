@@ -4,8 +4,8 @@ import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { toggleLikeState } from '../../redux/likeReducer'
+import { useAppDispatch, useAppSelector } from 'store/hooks'
+import { toggleLikeState } from 'store/likeSlice'
 
 type ProductListItemType = {
     id: number
