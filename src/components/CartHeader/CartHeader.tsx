@@ -6,8 +6,6 @@ type CartHeaderType = {
 }
 
 const CartHeader = ({ productsInCart }: CartHeaderType) => {
-    // console.log(productsObject)
-    // бачимо,що ключами  об'єкту є id, а значеннями- об'єкти product
     // console.log(productsInCart)
     // бачимо, що ключами об'єкту є id, а значеннями- кількість вибраного товару
 
